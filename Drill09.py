@@ -58,6 +58,12 @@ while True:
     if down_pressed:
         y -= 5
 
+    if x < 50:
+        x = 50
+
+    if x > 750:
+        x = 750
+
     moving = left_pressed or right_pressed or up_pressed or down_pressed
 
     clear_canvas()
