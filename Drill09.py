@@ -82,12 +82,21 @@ while True:
             )
 
     else:
-        character.clip_draw(
-            1 + frame * 100, 301,
-            100, 100,
-            x, y,
-            100, 100
-        )
+        if direction == 'right':
+            character.clip_draw(
+                1 + frame * 100, 301,
+                100, 100,
+                x, y,
+                100, 100
+            )
+        else:
+            character.clip_composite_draw(
+                1 + frame * 100, 301,
+                100, 100,
+                0, 'h',
+                x, y,
+                100, 100
+            )
 
     update_canvas()
 
