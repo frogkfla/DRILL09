@@ -11,6 +11,9 @@ y = 300
 frame = 0
 direction = 'right'
 
+move_speed = 4
+animation_delay = 0.07
+
 left_pressed = False
 right_pressed = False
 up_pressed = False
@@ -47,16 +50,16 @@ while True:
                 down_pressed = False
 
     if right_pressed:
-        x += 5
+        x += move_speed
 
     if left_pressed:
-        x -= 5
+        x -= move_speed
 
     if up_pressed:
-        y += 5
+        y += move_speed
 
     if down_pressed:
-        y -= 5
+        y -= move_speed
 
     if x < 50:
         x = 50
@@ -113,6 +116,6 @@ while True:
     update_canvas()
 
     frame = (frame + 1) % 8
-    delay(0.12)
+    delay(animation_delay)
 
 close_canvas()
