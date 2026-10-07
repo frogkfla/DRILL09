@@ -19,16 +19,19 @@ right_pressed = False
 up_pressed = False
 down_pressed = False
 
-while True:
+running = True
+
+while running:
     events = get_events()
 
     for event in events:
         if event.type == SDL_QUIT:
-            close_canvas()
-            exit()
+            running = False
 
         elif event.type == SDL_KEYDOWN:
-            if event.key == SDLK_LEFT:
+            if event.key == SDLK_ESCAPE:
+                running = False
+            elif event.key == SDLK_LEFT:
                 left_pressed = True
                 direction = 'left'
             elif event.key == SDLK_RIGHT:
