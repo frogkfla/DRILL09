@@ -49,6 +49,9 @@ while True:
     if left_pressed:
         x -= 5
 
+    if up_pressed:
+        y += 5
+
     clear_canvas()
 
     ground.draw(400, 300, 800, 600)
