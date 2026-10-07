@@ -50,12 +50,20 @@ while True:
 
     ground.draw(400, 300, 800, 600)
 
-    character.clip_draw(
-        1 + frame * 100, 301,
-        100, 100,
-        x, y,
-        100, 100
-    )
+    if right_pressed:
+        character.clip_draw(
+            1 + frame * 100, 101,
+            100, 100,
+            x, y,
+            100, 100
+        )
+    else:
+        character.clip_draw(
+            1 + frame * 100, 301,
+            100, 100,
+            x, y,
+            100, 100
+        )
 
     update_canvas()
 
