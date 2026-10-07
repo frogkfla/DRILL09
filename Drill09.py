@@ -54,27 +54,15 @@ while running:
 
     if right_pressed:
         x += move_speed
-
     if left_pressed:
         x -= move_speed
-
     if up_pressed:
         y += move_speed
-
     if down_pressed:
         y -= move_speed
 
-    if x < 50:
-        x = 50
-
-    if x > 750:
-        x = 750
-
-    if y < 50:
-        y = 50
-
-    if y > 550:
-        y = 550
+    x = clamp(50, x, 750)
+    y = clamp(50, y, 550)
 
     moving = left_pressed or right_pressed or up_pressed or down_pressed
 
