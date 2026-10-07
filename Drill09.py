@@ -9,6 +9,7 @@ x = 400
 y = 300
 
 frame = 0
+direction = 'right'
 
 left_pressed = False
 right_pressed = False
@@ -26,8 +27,10 @@ while True:
         elif event.type == SDL_KEYDOWN:
             if event.key == SDLK_LEFT:
                 left_pressed = True
+                direction = 'left'
             elif event.key == SDLK_RIGHT:
                 right_pressed = True
+                direction = 'right'
             elif event.key == SDLK_UP:
                 up_pressed = True
             elif event.key == SDLK_DOWN:
@@ -55,26 +58,28 @@ while True:
     if down_pressed:
         y -= 5
 
+    moving = left_pressed or right_pressed or up_pressed or down_pressed
+
     clear_canvas()
 
     ground.draw(400, 300, 800, 600)
 
-    if right_pressed:
-        character.clip_draw(
-            1 + frame * 100, 101,
-            100, 100,
-            x, y,
-            100, 100
-        )
-
-    elif left_pressed:
-        character.clip_composite_draw(
-            1 + frame * 100, 101,
-            100, 100,
-            0, 'h',
-            x, y,
-            100, 100
-        )
+    if moving:
+        if direction == 'right':
+            character.clip_draw(
+                1 + frame * 100, 101,
+                100, 100,
+                x, y,
+                100, 100
+            )
+        else:
+            character.clip_composite_draw(
+                1 + frame * 100, 101,
+                100, 100,
+                0, 'h',
+                x, y,
+                100, 100
+            )
 
     else:
         character.clip_draw(
