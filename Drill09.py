@@ -43,6 +43,9 @@ while True:
             elif event.key == SDLK_DOWN:
                 down_pressed = False
 
+    if right_pressed:
+        x += 5
+
     clear_canvas()
 
     ground.draw(400, 300, 800, 600)
