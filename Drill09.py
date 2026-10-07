@@ -10,7 +10,39 @@ y = 300
 
 frame = 0
 
+left_pressed = False
+right_pressed = False
+up_pressed = False
+down_pressed = False
+
 while True:
+    events = get_events()
+
+    for event in events:
+        if event.type == SDL_QUIT:
+            close_canvas()
+            exit()
+
+        elif event.type == SDL_KEYDOWN:
+            if event.key == SDLK_LEFT:
+                left_pressed = True
+            elif event.key == SDLK_RIGHT:
+                right_pressed = True
+            elif event.key == SDLK_UP:
+                up_pressed = True
+            elif event.key == SDLK_DOWN:
+                down_pressed = True
+
+        elif event.type == SDL_KEYUP:
+            if event.key == SDLK_LEFT:
+                left_pressed = False
+            elif event.key == SDLK_RIGHT:
+                right_pressed = False
+            elif event.key == SDLK_UP:
+                up_pressed = False
+            elif event.key == SDLK_DOWN:
+                down_pressed = False
+
     clear_canvas()
 
     ground.draw(400, 300, 800, 600)
@@ -26,11 +58,5 @@ while True:
 
     frame = (frame + 1) % 8
     delay(0.12)
-
-    events = get_events()
-    for event in events:
-        if event.type == SDL_QUIT:
-            close_canvas()
-            exit()
 
 close_canvas()
