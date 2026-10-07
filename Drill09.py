@@ -60,6 +60,16 @@ while True:
             x, y,
             100, 100
         )
+
+    elif left_pressed:
+        character.clip_composite_draw(
+            1 + frame * 100, 101,
+            100, 100,
+            0, 'h',
+            x, y,
+            100, 100
+        )
+
     else:
         character.clip_draw(
             1 + frame * 100, 301,
